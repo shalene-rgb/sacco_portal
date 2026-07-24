@@ -173,7 +173,7 @@ $security_result = mysqli_query($link, $security_query);
                             <td>#<?php echo htmlspecialchars($row['id']); ?></td>
                             <td><?php echo htmlspecialchars($row['member_name']); ?></td>
                             <td>Ksh <?php echo number_format($row['loan_amount'], 2); ?></td>
-                            <td><?php echo htmlspecialchars($row['created_at'] ?? $row['timestamp'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars(!empty($row['created_at']) ? $row['created_at'] : (!empty($row['timestamp']) ? $row['timestamp'] : date('Y-m-d H:i:s'))); ?></td>
                             <td><span class="badge badge-success">CLEAN PASS</span></td>
                         </tr>
                     <?php endwhile; ?>
